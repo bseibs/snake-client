@@ -6,6 +6,11 @@ const connect = function () {
     host: "localhost",
     port: 50541,
   });
+  conn.on("connect", function () {
+    console.log("successfully connected to game server!");
+    conn.write("Name: BDS");
+  });
+
   conn.on("data", function (data) {
     console.log("server says: ", data);
   });
