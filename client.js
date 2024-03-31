@@ -9,7 +9,10 @@ const connect = function () {
   conn.on("connect", function () {
     console.log("successfully connected to game server!");
     conn.write("Name: BDS/n");
-    //conn.write("Move:up/n");
+    // conn.write("Move:up/n");
+    // setInterval(() => {
+    //   conn.write("Move: up\n"); // Include newline character
+    // }, 10);
   });
 
   conn.on("data", function (data) {
