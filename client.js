@@ -8,7 +8,8 @@ const connect = function () {
   });
   conn.on("connect", function () {
     console.log("successfully connected to game server!");
-    conn.write("Name: BDS");
+    conn.write("Name: BDS/n");
+    conn.write("Move:up/n");
   });
 
   conn.on("data", function (data) {
