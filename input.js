@@ -10,14 +10,16 @@ const setupInput = function (conn) {
   const handleUserInput = function (key) {
     if (key === "\u0003") {
       process.exit();
-    } else if (key === "w") {
-      connection.write("Move: up"); // Using the outer scope variable connection.
-    } else if (key === "a") {
-      connection.write("Move: left");
-    } else if (key === "s") {
-      connection.write("Move: down");
-    } else if (key === "d") {
-      connection.write("Move: right");
+    }
+    const keyDirectionMap = {
+      w: "up",
+      a: "left",
+      s: "down",
+      d: "right",
+    };
+    const direction = keyDirectionMap[key];
+    if (direction) {
+      connection.write(`Move: ${direction}`);
     }
   };
   stdin.on("data", handleUserInput);
