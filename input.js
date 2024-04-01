@@ -21,6 +21,9 @@ const setupInput = function (conn) {
     if (direction) {
       connection.write(`Move: ${direction}`);
     }
+    if (key === "h") {
+      connection.write("Say: hi");
+    }
   };
   stdin.on("data", handleUserInput);
 
