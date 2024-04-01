@@ -9,7 +9,7 @@ const connect = function () {
   });
   conn.on("connect", function () {
     console.log("successfully connected to game server!");
-    conn.write("Name: BDS/n");
+    conn.write("Name: BDS\n"); // Fix newline character
   });
 
   conn.on("data", function (data) {
@@ -21,8 +21,5 @@ const connect = function () {
 
   return conn;
 };
-
-console.log("Connecting ...");
-connect();
 
 module.exports = { connect };
