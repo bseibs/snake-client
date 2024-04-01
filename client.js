@@ -1,18 +1,15 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    host: "localhost",
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
   conn.on("connect", function () {
     console.log("successfully connected to game server!");
     conn.write("Name: BDS/n");
-    // conn.write("Move:up/n");
-    // setInterval(() => {
-    //   conn.write("Move: up\n"); // Include newline character
-    // }, 10);
   });
 
   conn.on("data", function (data) {
